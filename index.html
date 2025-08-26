@@ -3,30 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HarmonyOS-NEXTweb</title>
+    <title>Imagen Centrada - GitHub Pages</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background-color: #2c2c2c; /* Gris oscuro */
-            height: 100vh;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
         }
         
-        .beta-text {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 24px;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        .description {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .option-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .option-title {
+            color: #3498db;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .image-container {
+            margin: 20px 0;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .centered-image {
+            max-width: 100%;
+            max-height: 180px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .method-selector {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .method-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .method-btn:hover {
+            background: #2980b9;
+        }
+        
+        .method-btn.active {
+            background: #2c3e50;
+        }
+        
+        .full-size-demo {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .demo-container {
+            margin: 20px auto;
+            max-width: 800px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        #demoImage {
+            max-width: 100%;
+            max-height: 360px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .options-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .option-card {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="beta-text">-1v beta-</div>
+    <div class="container">
+        <header>
+            <h1>Centrar Imagen en GitHub Pages</h1>
+            <p class="description">Diferentes métodos para centrar tu imagen "Untitled118_20250825195001-1.png" en una página web alojada en GitHub Pages.</p>
+        </header>
+        
+        <div class="method-selector">
+            <button class="method-btn active" onclick="showMethod('flex')">Método Flexbox</button>
+            <button class="method-btn" onclick="showMethod('grid')">Método Grid</button>
+            <button class="method-btn" onclick="showMethod('classic')">Método Clásico</button>
+        </div>
+        
+        <div class="options-container">
+            <div class="option-card">
+                <h2 class="option-title">Método Flexbox (Recomendado)</h2>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Flexbox" alt="Ejemplo Flexbox" class="centered-image">
+                </div>
+                <div class="code-block">
+                    .contenedor {<br>
+                    &nbsp;&nbsp;display: flex;<br>
+                    &nbsp;&nbsp;justify-content: center;<br>
+                    &nbsp;&nbsp;align-items: center;<br>
+                    &nbsp;&nbsp;height: 100vh;<br>
+                    }
+                </div>
+            </div>
+            
+            <div class="option-card">
+                <h2 class="option-title">Método CSS Grid</h2>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=CSS+Grid" alt="Ejemplo Grid" class="centered-image">
+                </div>
+                <div class="code-block">
+                    .contenedor {<br>
+                    &nbsp;&nbsp;display: grid;<br>
+                    &nbsp;&nbsp;place-items: center;<br>
+                    &nbsp;&nbsp;height: 100vh;<br>
+                    }
+                </div>
+            </div>
+            
+            <div class="option-card">
+                <h2 class="option-title">Método Clásico</h2>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300x200/2ecc71/ffffff?text=Clásico" alt="Ejemplo Clásico" class="centered-image">
+                </div>
+                <div class="code-block">
+                    .contenedor {<br>
+                    &nbsp;&nbsp;text-align: center;<br>
+                    }<br><br>
+                    .contenedor img {<br>
+                    &nbsp;&nbsp;display: block;<br>
+                    &nbsp;&nbsp;margin: 0 auto;<br>
+                    }
+                </div>
+            </div>
+        </div>
+        
+        <div class="full-size-demo">
+            <h2 class="demo-title">Demostración en tiempo real</h2>
+            <p>Selecciona un método para ver cómo se centra la imagen:</p>
+            
+            <div class="demo-container" id="demoContainer">
+                <img src="https://via.placeholder.com/600x400/9b59b6/ffffff?text=Untitled118_20250825195001-1.png" alt="Imagen de ejemplo" id="demoImage">
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Página de ejemplo para centrar imágenes en GitHub Pages - 2023</p>
+    </footer>
+
+    <script>
+        function showMethod(method) {
+            // Actualizar botones activos
+            document.querySelectorAll('.method-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Aplicar el método seleccionado al contenedor de demostración
+            const demoContainer = document.getElementById('demoContainer');
+            
+            // Resetear estilos
+            demoContainer.style.display = '';
+            demoContainer.style.justifyContent = '';
+            demoContainer.style.alignItems = '';
+            demoContainer.style.textAlign = '';
+            
+            // Aplicar el método seleccionado
+            if (method === 'flex') {
+                demoContainer.style.display = 'flex';
+                demoContainer.style.justifyContent = 'center';
+                demoContainer.style.alignItems = 'center';
+            } else if (method === 'grid') {
+                demoContainer.style.display = 'grid';
+                demoContainer.style.placeItems = 'center';
+            } else if (method === 'classic') {
+                demoContainer.style.textAlign = 'center';
+                document.getElementById('demoImage').style.display = 'block';
+                document.getElementById('demoImage').style.margin = '0 auto';
+            }
+        }
+    </script>
 </body>
 </html>
